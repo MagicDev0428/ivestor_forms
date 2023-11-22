@@ -15,6 +15,7 @@ import { LoginButtonComponent } from './components/login-button/login-button.com
 import { LogoutButtonComponent } from './components/logout-button/logout-button.component';
 import { AuthenticationButtonComponent } from './components/authentication-button/authentication-button.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { CallbackComponent } from './components/callback/callback.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     LoginButtonComponent,
     LogoutButtonComponent,
     AuthenticationButtonComponent,
-    ProfileComponent
+    ProfileComponent,
+    CallbackComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,7 @@ import { ProfileComponent } from './components/profile/profile.component';
       domain: 'dev-i2zq17ecubzreyxk.us.auth0.com',
       clientId: 'aP2PzJ0D8mtsvscnuX02mEGPosfi832v',
       authorizationParams: {
-        redirect_uri: window.location.origin,
+        redirect_uri: `${window.location.origin}/callback`,
         audience: 'http://localhost:3007'
       },
       cacheLocation: 'localstorage',
@@ -60,7 +62,7 @@ import { ProfileComponent } from './components/profile/profile.component';
             uri: 'http://localhost:3007',
             allowAnonymous: true
           },
-          'http://localhost:3007/private'
+          'http://localhost:3007/*'
         ]
       }
     }),
