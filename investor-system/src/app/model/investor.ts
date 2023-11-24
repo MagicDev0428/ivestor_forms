@@ -1,6 +1,6 @@
 export interface Investor {
     id: number,
-    firstName: string,
+    investorName: string,
     lastName: string,
     address: string
 }

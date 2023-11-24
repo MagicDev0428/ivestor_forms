@@ -1,1 +1,178 @@
-<p>manage-investor works!</p>
+<div class="wrapper">
+    <h4 class="title-create">Create New Investor</h4>
+    <form class="form" [formGroup]="addInvestorForm" (ngSubmit)="onSubmit()" autocomplete="off" novalidate>
+        <div class="content-wrap container-fluid text-left box-wrapper">
+            <div class="row">
+                <div class="col-lg-4 col-xl-3 col-md-6 form-group">
+                    <label for="investorName">Name</label>
+                    <input formControlName="investorName" type="text" class="form-control" id="investorName" aria-describedby="investor Name" />
+                    <span class="text-danger"
+                                *ngIf="(addInvestorForm.controls['investorName'].touched || submitted) && addInvestorForm.controls['investorName'].errors?.['required']">
+                                Name is required
+                            </span>
+                </div>
+                <div class="col-lg-4 col-xl-3 col-md-6 form-group">
+                    <label for="investorNiceName">Nickname</label>
+                    <input formControlName="nickName" type="text" class="form-control" id="investorNiceName"
+                        aria-describedby="investor Nick Name" />
+                </div>
+                <div class="col-lg-4 col-xl-3 col-md-6 form-group">
+                    <label for="investorPhone">Phone</label>
+                    <input formControlName="phone" type="tel" required 
+                        class="form-control" id="investorPhone" aria-describedby="investor Phone" />
+                    <span class="text-danger"
+                        *ngIf="(addInvestorForm.controls['phone'].touched || submitted) && addInvestorForm.controls['phone'].errors?.['required']">
+                        Phone is required
+                    </span>
+                </div>
+                <div class="col-lg-4 col-xl-3 col-md-6 form-group">
+                    <label for="investorEmail">Email Address</label>
+                    <input formControlName="email" type="email" class="form-control" id="investorEmail"
+                        aria-describedby="investor Email Address" />
+                    <span class="text-danger"
+                        *ngIf="(addInvestorForm.controls['email'].touched || submitted) && addInvestorForm.controls['email'].errors?.['required']">
+                        Email Address is required
+                    </span>
+                    <span class="text-danger"
+                        *ngIf="(addInvestorForm.controls['email'].errors?.['email'])">
+                        Email Address is Invalid
+                    </span>
+                </div>
+                <div class="col-lg-6 col-xl-6 col-sm-12 form-group">
+                    <label for="investorAddress">Address</label>
+                    <textarea formControlName="address" class="form-control" id="investorAddress" aria-describedby="investor Address" rows="4"
+                        cols="50"></textarea>
+                </div>
+                <div class="col-lg-4 col-xl-3 col-md-6 form-group">
+                    <label for="zipCode">Zip Code</label>
+                    <input formControlName="zipCode" type="text" class="form-control" id="zipCode" aria-describedby="investor Zip Code" />
+                </div>
+                <div class="col-lg-4 col-xl-3 col-md-6 form-group">
+                    <label for="city">City</label>
+                    <input formControlName="city" type="text" class="form-control" id="city" aria-describedby="investor city" />
+                </div>
+                <div class="col-lg-4 col-xl-3 col-md-6 form-group">
+                    <label for="country">Select Country:</label>
+                    <select formControlName="country" class="form-control" id="country" name="country" aria-describedby="investor country">
+                        <option>Thailand</option>
+                        <option>United States</option>
+                        <option>India</option>
+                        <option>Russia</option>
+                    </select>
+                </div>
+                <div class="col-lg-4 col-xl-3 col-md-6 form-group">
+                    <label for="investorStatus">Investor Status:</label>
+                    <select formControlName="investorStatus" class="form-control" id="investorStatus" name="investorStatus"
+                        aria-describedby="investor status">
+                        <option>Active</option>
+                        <option>On Hold</option>
+                        <option>In Active</option>
+                    </select>
+                </div>
+                <div class="col-lg-4 col-xl-3 col-md-6 form-group">
+                    <label for="Facebook">Facebook</label>
+                    <input formControlName="facebook" type="text" class="form-control" id="Facebook" aria-describedby="investor Facebook" />
+                </div>
+                <div class="col-lg-4 col-xl-3 col-md-6 form-group">
+                    <label for="Passport">Passport #</label>
+                    <input formControlName="passport" type="text" class="form-control" id="Passport" aria-describedby="investor Passport" />
+                </div>
+            </div>
+            <hr class="separator">
+            <div class="row">
+                <div class="col-lg-4 col-xl-3 col-md-6 form-group">
+                    <label for="BeneficiaryName">Beneficiary Name</label>
+                    <input formControlName="beneficiaryName" type="text" class="form-control" id="BeneficiaryName"
+                        aria-describedby="Beneficiary Name" />
+                    <span class="text-danger"
+                        *ngIf="(addInvestorForm.controls['beneficiaryName'].touched || submitted) && addInvestorForm.controls['beneficiaryName'].errors?.['required']">
+                        Beneficiary Name is required
+                    </span>
+                </div>
+                <div class="col-lg-4 col-xl-3 col-md-6 form-group">
+                    <label for="BeneficiaryEmail">Beneficiary Email</label>
+                    <input formControlName="beneficiaryEmail" type="email" class="form-control" id="BeneficiaryEmail"
+                        aria-describedby="Beneficiary Email" />
+                        <span class="text-danger"
+                        *ngIf="(addInvestorForm.controls['email'].touched || submitted) && addInvestorForm.controls['email'].errors?.['required']">
+                        Email Address is required
+                    </span>
+                </div>
+                <div class="col-lg-4 col-xl-3 col-md-6 form-group">
+                    <label for="BeneficiaryPhone">Beneficiary Phone</label>
+                    <input type="tel" required pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="123-45-678"
+                        class="form-control" id="BeneficiaryPhone" aria-describedby="Beneficiary Phone" />
+                </div>
+            </div>
+            <hr class="separator">
+            <div class="row">
+                <div class="col-lg-4 col-xl-3 col-md-6 form-group">
+                    <label for="moneyTransfer">Money Transfer</label>
+                    <select class="form-control" id="moneyTransfer" name="moneyTransfer"
+                        aria-describedby="Money Transfer">
+                        <option selected disabled>Select Money Transfer</option>
+                        <option>Thailand</option>
+                        <option>United States</option>
+                        <option>India</option>
+                        <option>Russia</option>
+                    </select>
+                </div>
+                <div class="col-lg-4 col-xl-3 col-md-6 form-group">
+                    <label for="currency">Currency</label>
+                    <select class="form-control" id="currency" name="currency" aria-describedby="investor currency">
+
+                        <option selected disabled>Select Currency</option>
+                        <option>THB</option>
+                        <option>USD</option>
+                        <option>INR</option>
+                        <option>CAD</option>
+                    </select>
+                </div>
+                <div class="col-lg-6 col-xl-6 col-sm-12 form-group">
+                    <label for="moneyTransferInformation">Money Transfer Information</label>
+                    <textarea class="form-control" id="moneyTransferInformation" aria-describedby="Money Transfer Information" rows="4"
+                        cols="50"></textarea>
+                </div>
+            </div>
+            <hr class="separator">
+
+            <div class="row">
+                <div class="col-lg-8 col-sm-12 form-group choose-image-wrapper">
+                    <label for="passportImage">Passport Image</label>
+                    <div class="file-wrapper">
+                        <span class="browse-files">Browse Files</span>
+                        <input type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
+                        <span class="caption">Drag and drop files here</span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-lg" >Save Investor</button>
+            </div>
+
+            <div class="info d-flex flex-row">
+                <div class="info-wrapper d-flex flex-column align-center">
+                    <div class="info-col">
+                        <span class="info-text">Create Date: </span>
+                        <span class="info-value">01-Feb-2023</span>
+                    </div>
+                    <div class="info-col">
+                        <span class="info-text">Edit Date</span>
+                        <span class="info-value">12-August-2023</span>
+                    </div>
+                </div>
+                <div class="info-wrapper d-flex flex-column align-center">
+                    <div class="info-col">
+                        <span class="info-text">Create By</span>
+                        <span class="info-value">Torben</span>
+                    </div>
+                    <div class="info-col">
+                        <span class="info-text">Edit By</span>
+                        <span class="info-value">Bee</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+</div>

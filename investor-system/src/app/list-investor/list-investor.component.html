@@ -1,1 +1,20 @@
 <p>list-investor works!</p>
+
+<h3>External API</h3>
+<div role="group">
+  <button (click)="callPublicEndpoint()" type="button">
+    Get Public Message
+  </button>
+  <button (click)="callProtectedEndpoint()" type="button">
+    Get Protected Message
+  </button>
+</div>
+
+<div *ngIf="message">
+  <h6>Result</h6>
+  <div>
+    <div>
+      <code> {{ message }} </code>
+    </div>
+  </div>
+</div>
