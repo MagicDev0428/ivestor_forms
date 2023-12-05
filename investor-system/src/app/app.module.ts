@@ -8,6 +8,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ManageInvestorComponent } from './manage-investor/manage-investor.component';
 import { ListInvestorComponent } from './list-investor/list-investor.component';
+import { AdamTableComponent } from './adam/adam-table.component';
+import { AdamFormComponent } from './adam/adam-form.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthModule } from '@auth0/auth0-angular';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -25,6 +27,8 @@ import { CallbackComponent } from './components/callback/callback.component';
     FooterComponent,
     ManageInvestorComponent,
     ListInvestorComponent,
+    AdamTableComponent,
+    AdamFormComponent,
     LoginButtonComponent,
     LogoutButtonComponent,
     AuthenticationButtonComponent,

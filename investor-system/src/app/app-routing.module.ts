@@ -4,6 +4,8 @@ import { ListInvestorComponent } from './list-investor/list-investor.component';
 import { ManageInvestorComponent } from './manage-investor/manage-investor.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { CallbackComponent } from './components/callback/callback.component';
+import { AdamTableComponent } from './adam/adam-table.component';
+import { AdamFormComponent } from './adam/adam-form.component';
 
 const routes: Routes = [
   {path: 'list', component: ListInvestorComponent},
@@ -12,6 +14,8 @@ const routes: Routes = [
   {path: '', redirectTo: '/list', pathMatch: 'full'},
   {path: 'profile', component: ProfileComponent},
   {path: 'callback', component: CallbackComponent},
+  {path: 'adam-table', component: AdamTableComponent},
+  {path: 'adam-form',  component: AdamFormComponent}
 ];
 
 @NgModule({
